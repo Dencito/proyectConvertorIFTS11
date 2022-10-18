@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+    <ion-toolbar color="white">
+      <ion-buttons slot="start">
+        <ion-button (click)="logout()">
+          <ion-icon slot="icon-only" name="log-out"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    <ion-title>
+      Convertor de Musica
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="bg">
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">Api-Converter</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-label aria-for="youtubelink">Link del Video</ion-label>
+    <ion-input id="youtubelink"  type="text" aria-placeholder="Ingrese el link de su video" ></ion-input>
+    <audio id="audio" autoplay controls></audio>
+    <ion-button color="white" (click) = "EvenListener()">Convertir video</ion-button>
+
+    <app-explore-container name="Api-Converter"></app-explore-container>
+  </div>
+</ion-content>

@@ -1,0 +1,26 @@
+
+<ion-content class="ion-padding">
+  <div class="bg">
+    <form [formGroup]="crendenciales" (ngSubmit)="register()">
+      <ion-title>Register</ion-title>
+  
+      <ion-item fill="solid" class="ion-margin-bottom">
+        <ion-input type="text" placeholder="Nombre de usuario"></ion-input>
+      </ion-item>
+  
+      <ion-item fill="solid" class="ion-margin-bottom">
+        <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
+        <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors">Email inválido</ion-note>
+      </ion-item>
+  
+      <ion-item fill="solid" class="ion-margin-bottom">
+        <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+        <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors">La contraseña debe tener mínimo 6 caracteres, debe de tener minimo una letra mayuscula y cualquier numero</ion-note>
+      </ion-item>
+  
+      <ion-button expand="full" type="submit"  color="white">Registrarme</ion-button>
+      <ion-button expand="full" type="button" color="white" (click)="redirectToLogin()">Volver al Login</ion-button>
+    </form>
+  </div>
+  
+</ion-content>

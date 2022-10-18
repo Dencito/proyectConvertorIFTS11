@@ -1,0 +1,20 @@
+<ion-content class="ion-padding">
+  <div class="bg">
+    <form [formGroup]="crendenciales" (ngSubmit)="login()">
+      <ion-title>Login</ion-title>
+      <ion-item fill="solid" class="ion-margin-bottom">
+        <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
+        <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors">Email inválido</ion-note>
+      </ion-item>
+  
+      <ion-item fill="solid" class="ion-margin-bottom">
+        <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+        <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors">La contraseña debe tener mínimo 6 caracteres</ion-note>
+      </ion-item>
+  
+      <ion-button expand="full" type="submit" color="white">Ingresar</ion-button>
+      <ion-button expand="full" type="button"  color="white" (click)="redirectToRegister() ">Crear Cuenta</ion-button>
+    </form>
+  </div>
+  
+</ion-content>

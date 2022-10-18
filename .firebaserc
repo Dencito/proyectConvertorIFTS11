@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "convertidorarchivos-c678e": {
+      "hosting": {
+        "app": [
+          "convertidorarchivos-c678e"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "convertidorarchivos-c678e"
+  }
+}
