@@ -47,7 +47,7 @@ export class RegisterPage implements OnInit {
     if (user) {
       this.router.navigateByUrl('/convertidor-youtube', { replaceUrl: true });
     } else {
-      this.showAlert('Falló Registración', 'Intente devuelta!');
+      this.showAlert('Complete los campos por favor', 'Intente nuevamente!');
     }
   }
 

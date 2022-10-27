@@ -78,8 +78,9 @@ constructor(private authService:AuthService,private router:Router){
             }
             if (quality) audio_streams[quality] = stream.url;
           });
-
-          console.log(audio_streams);
+          
+          console.log("links de los audios",audio_streams);
+          
 
           audio_tag.src = audio_streams['256kbps'] || audio_streams['128kbps'] || audio_streams['48kbps'];
 
@@ -88,14 +89,50 @@ constructor(private authService:AuthService,private router:Router){
       }
     });
   }
+  
   EvenListener() {
-
     var youtubelink = (<HTMLInputElement>document.getElementById('youtubelink')).value;
+
+    let link = (document.getElementById("youtubelink") as HTMLInputElement).value;
+    console.log("link del video", link)
+
+    console.log("filtrado :",link.split('=')[1]);
+
+    console.log("https://www.youtube.com/embed/"+link.split('=')[1].split('&')[0])
+    let linkIframe = "https://www.youtube.com/embed/"+link.split('=')[1].split('&')[0];
+
+
     document.getElementById('audio').style.display = 'block';
+    let iframe = document.getElementById('iframe-youtube');
+    iframe.hidden = false;
+    iframe.setAttribute("src", linkIframe)
+    
     var audio_tag = document.getElementById('audio');
     this.converter(youtubelink, audio_tag);
-    console.log('Video convertido a M4a')
+    console.log("audio_tag", audio_tag);
+    console.log('Video convertido a M4a');
+
+    setTimeout(() => {
+      let linkAudio = document.getElementById('audio').getAttribute('src');
+    console.log(linkAudio)
+
+    console.log('link del audio', (<HTMLInputElement>document.getElementById('audio')).src);
+      const anchor = document.createElement('a');
+      anchor.href = linkAudio; 
+      anchor.setAttribute("href", linkAudio)
+      anchor.download = 'la renga';
+      anchor.type = "audio/m4a";
+      document.body.appendChild(anchor);
+      anchor.click();
+      document.body.removeChild(anchor);
+    }, 5000);
+    
+    
+
+
   };
+
+  
   async logout() {
     await this.authService.logout();
     this.router.navigateByUrl('/', { replaceUrl: true });

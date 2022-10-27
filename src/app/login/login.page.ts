@@ -45,7 +45,7 @@ export class LoginPage{
     if (user) {
       this.router.navigateByUrl('/convertidor-youtube', { replaceUrl: true });
     } else {
-      this.showAlert('Falló Login', 'Intente devuelta!');
+      this.showAlert('Usuario o contraseña incorrecta', 'Intente devuelta!');
     }
   }
 
